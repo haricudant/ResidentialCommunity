@@ -1,0 +1,42 @@
+<% content_for(:page_header) {"Your ordered products "} %> 
+<div class = "jumbotron  jumbotron-fluid container">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @product.title %>
+</p>
+
+<p>
+  <strong>Price/Kg:</strong>
+  <%= @product.price %>
+</p>
+
+
+<% @product.assignments.each do |assignment| %>
+
+  <%= assignment.color.color %>
+  <%= assignment.quantity %>
+
+<% end %>
+<%= form_tag charges_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+      <span>Amount:<%= @product.price %></span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe['pk_test_ckKO5YW4t5HNlJT5vOF6Ju8900XaANUGFO'] %>"
+          data-description="A month's subscription"
+          data-amount="500"
+          data-locale="auto"></script>
+<% end %>
+</div>
+
+<%= link_to 'Back', root_path %>

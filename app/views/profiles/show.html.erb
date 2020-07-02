@@ -1,0 +1,34 @@
+<% content_for(:page_header) {"User Profile"} %>
+<p id="notice"><%= notice %></p>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;border-color:#aaa;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px;border-bottom-width:1px;border-color:#aaa;color:#333;background-color:#fff;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px;border-bottom-width:1px;border-color:#aaa;color:#fff;background-color:#f38630;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+.tg .tg-dg7a{background-color:#FCFBE3;text-align:left;vertical-align:top}
+</style>
+<table class="tg jumbotron jumbotron-fluid container textcenter table table-hover" align="center">
+  <tr>
+    <th class="tg-0lax">Firstname</th>
+    <th class="tg-0lax">Lastname</th>
+    <th class="tg-0lax">Door no:</th>
+    <th class="tg-0lax">Spouse name:</th>
+    <th class="tg-0lax">Number of cars:</th>
+    <th class="tg-0lax">Intrested in events:</th>
+    <th class="tg-0lax">UserID</th>
+  </tr>
+  <tr>
+    <td class="tg-dg7a"> <%= @profile.firstname %></td>
+    <td class="tg-dg7a"> <%= @profile.lastname %></td>
+    <td class="tg-dg7a"> <%= @profile.door_no %></td>
+    <td class="tg-dg7a"> <%= @profile.spouse_name %></td>
+    <td class="tg-dg7a"> <%= @profile.Number_of_Cars %></td>
+    <td class="tg-dg7a"> <%= @profile.Intrested_in_events %></td>
+    <td class="tg-dg7a">  <%= @profile.user.id %></td>
+    <td><%= link_to 'Edit', edit_profile_path(@profile) %></td>
+    <td><%= link_to 'Back', profiles_path %></td>
+  </tr>
+
+</table>
+
+

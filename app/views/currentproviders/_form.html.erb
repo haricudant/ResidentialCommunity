@@ -1,0 +1,40 @@
+<div class = "jumbotron">
+  
+  <%= form_with(model: currentprovider, local: true) do |form| %>
+  <% if currentprovider.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(currentprovider.errors.count, "error") %> prohibited this currentprovider from being saved:</h2>
+
+      <ul>
+      <% currentprovider.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :providername %>
+    <%= form.text_field :providername %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cost %>
+    <%= form.text_field :cost %>
+  </div>
+
+  <div class="field">
+    <%= form.label :standingcharge %>
+    <%= form.text_field :standingcharge %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pslvcharge %>
+    <%= form.text_field :pslvcharge %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>

@@ -1,0 +1,54 @@
+<div class = "jumbotron">
+
+<h1>Editing Asset</h1>
+<%= form_with(model: @asset, local: true) do |form| %>
+
+ <% if @asset.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@asset.errors.count, "error") %> prohibited this asset from being saved:</h2>
+    <ul>
+      <% @asset.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :assetname %>
+    <%= form.text_field :assetname %>
+  </div>
+<div class='form-group'>
+    <%= form.label :assettype %>
+    <%= form.select :assettype ,Service.all.map { |service| [service.servicename, service.servicename] } %>
+</div>
+
+  <div class='form-group'>
+   <%= form.radio_button :workingcondition, 'working', :checked => true %> working
+    <%=  form.radio_button :workingcondition, 'Notworking' %> Not working
+ </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id , :readonly => true%>
+  </div>
+
+
+  <div class='form-group'>
+      <div class="panel-heading"><strong>If not working, Click to add extra details about the damage</strong></div>
+              <div class="panel-body">
+                  <%= form.fields_for :Complains do |complain| %>
+                  <%=  render 'Complain_fields', f: complain %>
+                  <% end %>
+                    <div class = 'links'> 
+                      <%= link_to_add_association 'Add Details', form, :Complains %>
+                    </div>
+                 </div> 
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+  <% end %>
+<%= link_to 'Show', @asset %> |
+<%= link_to 'Back', assets_path %>
+</div>

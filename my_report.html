@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<title>Dawnscanner report for qith-UI-and-nav-links-activated</title> <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"><script src="https://code.jquery.com/jquery-2.2.0.min.js"></script><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script><style type="text/css">body{padding-top:20px;padding-bottom:40px}.container-narrow{margin:0 auto;max-width:700px}.container-narrow>hr{margin:30px 0}.jumbotron,.marketing{margin:60px 0}.jumbotron{text-align:center}.jumbotron h1{font-size:72px;line-height:1}.jumbotron .btn{font-size:21px;padding:14px 24px}.marketing p+h4{margin-top:28px}#wrap{min-height:100%;height:auto!important;height:100%;margin:0 auto -60px}#footer,#push{height:60px}#footer{background-color:#f5f5f5}@media (max-width:767px){#footer{margin-left:-20px;margin-right:-20px;padding-left:20px;padding-right:20px}}
+</style></head>
+<body>
+<div id="wrap">
+<div class="container-narrow">
+<div class="masthead">
+<ul class="nav nav-pills pull-right">
+<li class=""><a href="http://dawnscanner.org">Home</a></li>
+<li class="active"><a href="https://github.com/thesp0nge/dawnscanner">Github repo</a></li>
+</ul>
+<h3 class="muted">Dawnscanner</h3>
+</div>
+<h1>Security code review results for "qith-UI-and-nav-links-activated"</h1>
+<hr />
+<h2>Scan detail</h2>
+<div class="row">
+<p>The scan was last executed 10 Apr 2019 - 23:30:53 and Dawn founds 2 vulnerabilities</p>
+</div>
+<hr />
+<h2>Scan details</h2>
+<table class="table-striped table-bordered table">
+<thead><tr><td>Key</td><td>Value</td></tr></thead>
+<tbody>
+<tr><td>Dawn version</td><td>1.6.9</td></tr><tr><td>Scan duration</td><td>0.688 sec</td></tr>
+<tr><td>Target</td><td>/home/ubuntu/workspace/qith-UI-and-nav-links-activated</td></tr>
+<tr><td>MVC detected framework</td><td>rails v5.2.2</td></tr><tr><td>Applied checks</td><td>235 security checks</td></tr>
+<tr><td>Skipped checks</td><td>0 security checks</td></tr>
+<tr><td>Vulnerabilities found</td><td>2</td></tr>
+<tr><td>Mitigated issues found</td><td>0</td></tr>
+<tr><td>Reflected XSS</td><td>0</td></tr>
+</tbody>
+</table>
+<hr />
+<h2>Vulnerabilities found</h2>
+<table class="table-striped table-bordered table">
+<thead><tr><td>Name</td><td>Severity</td><td>CVSS score</td><td>Description</td><td>Remediation</td></tr></thead>
+<tbody><tr><td><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=Owasp Ror CheatSheet: Session management">Owasp Ror CheatSheet: Session management</a></td><td>info</td><td>    </td><td>By default, Ruby on Rails uses a Cookie based session store. What that means is that unless you change something, the session will not expire on the server. That means that some default applications may be vulnerable to replay attacks. It also means that sensitive information should never be put in the session.</td><td>Use ActiveRecord or the ORM you love most to handle your code session_store. Add "Application.config.session_store :active_record_store" to your session_store.rb file.</td></tr>
+<tr><td><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=Owasp Ror CheatSheet: Security Related Headers">Owasp Ror CheatSheet: Security Related Headers</a></td><td>info</td><td>    </td><td>To set a header value, simply access the response.headers object as a hash inside your controller (often in a before/after_filter). Rails 4 provides the "default_headers" functionality that will automatically apply the values supplied. This works for most headers in almost all cases.</td><td>Use response headers like X-Frame-Options, X-Content-Type-Options, X-XSS-Protection in your project.</td></tr>
+</tbody>
+</table>
+<div id="push"></div>
+<div id="footer">
+<div class="container">
+<p class="muted credit">Proudly generated with <a href="http://dawnscanner.org">Dawnscanner</a> &mdash; 2019 &mdash; engine v1.6.9 (20181128)</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

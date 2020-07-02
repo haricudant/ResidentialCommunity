@@ -1,0 +1,32 @@
+
+
+<div class="card">
+<div class="card-body">
+
+<% @order_items.each do |item| %>
+
+    <h3><%= item.product.title %></h3>
+    <h4>Price: <%= item.product.price %> €</h4>
+
+
+    <%= form_for item, remote: true do |f| %>
+
+
+
+        <%= f.hidden_field :product_id, :value => item.product.id, class: "form-control" %>
+        <%= f.number_field :quantity, :value => item.quantity.to_i,class: "form-control" %>
+        <p></p>
+        <%= f.submit "Update Cart ", class: "btn btn-primary"%>
+            
+        <%= link_to "Delete", order_item_path(item), method: :delete, remote: true, class:"btn btn-danger"%>
+
+    <% end %>
+    <h2>Subtotal: <%= item.total %></h2>
+<hr>
+<% end %>
+
+</div>
+</div>
+
+
+<h2>Your current cart has a subtotal of: <b> <%= current_order.subtotal %> €</b></h2>

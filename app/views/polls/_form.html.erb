@@ -1,0 +1,25 @@
+<% if current_user.admin? %> 
+<%= form_for @poll do |f| %>
+  <%= render 'shared/errors', object: @poll %>
+     <div class='form-group'>
+        <%= f.label :topic %>
+        </br>
+        <%= f.text_area :topic, required: true, class: 'form-control' %>
+        </div>
+      <div class="panel panel-default">
+          <div class="panel-heading">Add your Options below</div>
+              <div class="panel-body">
+                  <%= f.fields_for :vote_values do |vote_value| %>
+                  
+                  <%=  render 'vote_value_fields', f: vote_value %>
+                  <% end %>
+                    <div class = 'links'> 
+                      <%= link_to_add_association 'Add Options', f, :vote_values %>
+                    </div>
+                 </div> 
+         <%= f.submit 'Create', class: 'btn btn-primary btn-lg' %>
+    <% end %>
+    <% else %>
+     <%= render js: 'alert(\'Your vote cannot be saved. Have you already voted?\');' %>
+
+    <% end %>

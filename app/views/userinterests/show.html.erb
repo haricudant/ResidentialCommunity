@@ -1,0 +1,8 @@
+<h1>USER INTERESTS in the event <%= @events.name %></h1>
+<p>
+<b>USER INTEREST:</b>
+<%= @userinterests.isinterest %>
+</p>
+
+<%= link_to 'Edit', edit_event_userinterest_path(@events, @userinterests)%>
+<%= link_to 'Back', event_userinterest_path(@events) %>

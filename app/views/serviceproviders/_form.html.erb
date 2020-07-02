@@ -1,0 +1,35 @@
+<div class = "jumbotron">
+  <%= form_with(model: serviceprovider, local: true) do |form| %>
+  <% if serviceprovider.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(serviceprovider.errors.count, "error") %> prohibited this serviceprovider from being saved:</h2>
+
+      <ul>
+      <% serviceprovider.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :providername %>
+    <%= form.text_field :providername %>
+  </div>
+
+  <div class="field">
+    <%= form.label :providerservice %>
+    <%= form.select :providerservice ,Service.all.map { |service| [service.servicename, service.servicename] } %> 
+    </div>
+
+
+  <div class="field">
+    <%= form.label :mailid %>
+    <%= form.text_field :mailid %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>

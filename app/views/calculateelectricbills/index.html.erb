@@ -1,0 +1,91 @@
+<div class = " ">
+<div class ="container text-center">
+<% content_for(:page_header) {"CALCULATE  BASED ON THESE CATEGORIES"} %>
+</div>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 100%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card_three {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #d3c470;
+}
+.card_one {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #0d1e3a;
+}
+.card_two {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+</style>
+</head>
+<body>
+    <div class = "container text-center">
+<div class="row">
+  <div class="column">
+    <div class="card_one">
+      <h3><%= link_to 'ON NUMBER OF ROOMS', calculateelectricbills_path %></h3>
+    </div>
+    <div class="row">
+    <div class="card_two">
+      <h3><%= link_to 'ON AMMENTIES USED', calculateelectricbills_usage_path %></h3>
+
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="card_three">
+      <h3><%= link_to 'ELECTRICITY BILL', calculateelectricbills_basedonmeter_path %></h3>
+
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+<%##= link_to 'Based On Number of Room', calculateelectricbills_path %></li>
+
+<%#= link_to 'BASED ON AMMENTIES USED', calculateelectricbills_usage_path %> </li>
+<%#= link_to 'Calculate Electricity Bill', calculateelectricbills_basedonmeter_path %></li>

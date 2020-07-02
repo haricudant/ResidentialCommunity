@@ -1,0 +1,32 @@
+<div class = "jumbotron">
+    <%= form_for([@events, @userinterests]) do |f| %>
+<% if @userinterests.errors.any? %>
+<div id="error_explanation">
+<h2><%= pluralize(@userinterests.errors.count, "error")
+%> prohibited this review from being saved:</h2>
+<ul>
+<% @userinterests.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
+<div class="field">
+<p>
+    <b> Are you intrested in <%= @events.name %></b>
+<div class='form-group'>
+    
+   <%= f.radio_button :isinterest, 'Interested', :checked => true %> INTERESTED  <br>
+   <p></p>
+   <hr>
+    <%=  f.radio_button :isinterest, 'Not Interested' %> NOT INTERESTED
+ </div>
+</p>
+</div>
+<div class="actions">
+<%#= form.submit,class: "btn btn-success"  %>
+ <%= f.submit  "Submit", class: "btn btn-success btn-lg "%>
+ 
+</div>
+<% end %>
+</div>

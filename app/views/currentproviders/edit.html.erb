@@ -1,0 +1,10 @@
+<div class = "jumbotron">
+    <% if current_user.admin? %>
+<h1>Editing Currentprovider</h1>
+<%= render 'form', currentprovider: @currentprovider %>
+<%= link_to 'Show', @currentprovider %> |
+<%= link_to 'Back', currentproviders_path %>
+<% else %>
+<H1> ONLY ADMINS CAN ACCESS THIS PAGE</H1>
+<% end %>
+</div>

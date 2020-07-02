@@ -1,0 +1,53 @@
+<div class = "jumbotron">
+<% if current_user.admin? %>
+
+<%= form_with(model: event, local: true) do |form| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cost %>
+    <%= form.text_field :cost %>
+  </div>
+   <div class="field">
+     DJ:
+    <%= check_box_tag 'event[dj]', 'dj' %>
+    </div>
+    
+    <div class="field">
+    BEVERAGES:
+    <%= check_box_tag 'event[beverages]', 'beverages' %>
+    </div>
+    
+    <div class="field">
+    CATERING:
+    <%= check_box_tag 'event[catering]', 'catering' %>
+    </div>
+  
+   <div class="field">
+    HOST:
+    <%= check_box_tag 'event[host]', 'host' %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<% else %>
+    Only Admins can access this page 
+<% end %>
+</div>

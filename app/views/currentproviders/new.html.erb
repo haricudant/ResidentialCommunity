@@ -1,0 +1,11 @@
+<div class = "jumbotron">
+<% if current_user.admin? %>
+<h1>New Currentprovider</h1>
+
+<%= render 'form', currentprovider: @currentprovider %>
+
+<%= link_to 'Back', currentproviders_path %>
+<% else %>
+<h1>Only Admin can access this page</h1>
+<% end %>
+</div>

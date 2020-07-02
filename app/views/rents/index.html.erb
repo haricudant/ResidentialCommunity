@@ -1,0 +1,58 @@
+
+<p id="notice"><%= notice %></p>
+
+<h1>Rents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Grossrent</th>
+      <th>Mortage interest</th>
+      <th>Mortage interest allowed</th>
+      <th>Repairs</th>
+      <th>Insurance</th>
+      <th>Management charges</th>
+      <th>Agent fee</th>
+      <th>Other</th>
+      <th>Total expenses</th>
+      <th>Rental profit or loss</th>
+      <th>Wear and tear</th>
+      <th>Net profit or loss</th>
+      <th>Income tac</th>
+      <th>Prsi</th>
+      <th>Usc</th>
+      <th>Total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rents.each do |rent| %>
+      <tr>
+        <td><%= rent.grossrent %></td>
+        <td><%= rent.mortage_interest %></td>
+        <td><%= rent.mortage_interest_allowed %></td>
+        <td><%= rent.repairs %></td>
+        <td><%= rent.insurance %></td>
+        <td><%= rent.management_charges %></td>
+        <td><%= rent.agent_fee %></td>
+        <td><%= rent.other %></td>
+        <td><%= rent.total_expenses %></td>
+        <td><%= rent.rental_profit_or_loss %></td>
+        <td><%= rent.wear_and_tear %></td>
+        <td><%= rent.net_profit_or_loss %></td>
+        <td><%= rent.income_tac %></td>
+        <td><%= rent.prsi %></td>
+        <td><%= rent.usc %></td>
+        <td><%= rent.total %></td>
+        <td><%= link_to 'Show', rent %></td>
+        <td><%= link_to 'Edit', edit_rent_path(rent) %></td>
+        <td><%= link_to 'Destroy', rent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rent', new_rent_path %>

@@ -1,0 +1,23 @@
+
+<div class = "jumbotron">
+<% if current_user.admin? %>
+
+
+  <p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Appliance name:</strong>
+  <%= @appliance.Appliance_name %>
+</p>
+
+<p>
+  <strong>Appliance watt:</strong>
+  <%= @appliance.Appliance_watt %>
+</p>
+
+<%= link_to 'Edit', edit_appliance_path(@appliance) %> |
+<%= link_to 'Back', appliances_path %>
+<% else %>
+<h1>ONLY ADMINS CAN ACCESS THIS PAGE</h1>
+<% end %>
+</div>

@@ -1,0 +1,48 @@
+<div class = "jumbotron">
+    <% if current_user.admin? %>
+
+ <p id="notice"><%= notice %></p>
+
+ <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;border-color:#aaa;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px;border-bottom-width:1px;border-color:#aaa;color:#333;background-color:#fff;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px;border-bottom-width:1px;border-color:#aaa;color:#fff;background-color:#f38630;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+.tg .tg-dg7a{background-color:#FCFBE3;text-align:left;vertical-align:top}
+</style>
+
+
+<h1>Serviceproviders</h1>
+
+<table class="tg jumbotron jumbotron-fluid container textcenter table table-hover" align="center">
+  <thead class="tg-0lax">
+    <tr>
+      <th class="tg-0lax">Providername</th>
+      <th class="tg-0lax">Providerservice</th>
+      <th class="tg-0lax">Mailid</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @serviceproviders.each do |serviceprovider| %>
+      <tr>
+        <td class="tg-dg7a"><%= serviceprovider.providername %></td>
+        <td class="tg-dg7a"><%= serviceprovider.providerservice %></td>
+        <td class="tg-dg7a"><%= serviceprovider.mailid %></td>
+        <td class="tg-dg7a"><%= link_to 'Show', serviceprovider %></td>
+        <td class="tg-dg7a"><%= link_to 'Edit', edit_serviceprovider_path(serviceprovider) %></td>
+        <td class="tg-dg7a"><%= link_to 'Destroy', serviceprovider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Serviceprovider', new_serviceprovider_path %>
+
+<% else %>
+<h1>Only Admin can access this page </h1>
+<% end %>
+</div>

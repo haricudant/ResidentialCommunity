@@ -1,0 +1,15 @@
+<div class = 'well'>
+<%= form_tag votes_path, method: :post, remote: true, id: 'voting_form' do %>
+  <%= hidden_field_tag 'poll[id]', @poll.id %>
+    <%= render partial: 'polls/vote_value', collection: @poll.vote_values, as: :content %>
+    <p><b>Votes given for the Poll: <%= @poll.vote_count %></b></p>
+      <% if current_user.voted_for?(@poll) %>
+        <strong>You have already voted!</strong>
+        <% elsif current_user.admin == true %>
+        <strong>Admin Cant Vote!</strong>
+        <% else %>
+          <%= submit_tag 'Vote', class: 'btn btn-lg btn-primary' %>
+      <% end %>
+    <% end %>
+    
+    </div>

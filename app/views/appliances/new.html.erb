@@ -1,0 +1,15 @@
+<div class = "jumbotron">
+
+<% if current_user.admin? %>
+<h1>New Appliance</h1>
+
+<%= render 'form', appliance: @appliance %>
+
+<%= link_to 'Back', appliances_path %>
+</div>
+<% else %>
+<h1>ONLY ADMINS CAN ACCESS THIS PAGE</h1>
+
+
+<% end %>
+</div>

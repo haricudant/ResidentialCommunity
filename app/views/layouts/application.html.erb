@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+    <meta name="6d541133b7bbf7b19e4da07d2420f9c8fd0364bc" content="29807ba62a1346bfbb01c8cf4dd32c0c3951b5bc" />
+  
+    <title>OnlineShop</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application' , 'data-turbolinks-track' => true %>
+  </head>
+  <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '{253168687685948}',
+      cookie     : true,
+      xfbml      : true,
+      version    : '{api-version}'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+  <style>
+  body{
+    background-image:url(/assetz/bb.jpg);
+    background-size: 100% ;
+  }
+    
+.jj{
+  color: #ffffff;
+  }   
+  
+
+  </style>
+
+  <body style="margin:0 !important">
+
+    <div class="">
+    <div class="navbar-header">
+      <%#=link_to(imag"the_best_image_path.jpg", class: "img_class_goes_here"), _path, class: "navbar-brand"%>
+      
+      <b><%= link_to ' Home', root_path, class: 'navbar-brand' %></b>
+       <% if user_signed_in? %> 
+          <% if current_user.admin? %>
+            <ul class="nav navbar-nav pq">
+            <li><%= link_to 'Poll', new_poll_path, class: "footer1" %></li>
+            <li><%= link_to 'Add Products', products_path ,  class: "footer1"%>  </li>
+            <li><%= link_to 'Electric Current Providers', currentproviders_path, class: "footer1" %></li>
+            <li><%= link_to 'Add Service',services_path, class: "footer1" %></li>
+            <li><%= link_to 'Service Providers',serviceproviders_path, class: "footer1" %></li>
+            <li><%= link_to 'Add Appliance',appliances_path, class: "footer1" %></li>
+            <li><%= link_to ' Events', events_path , class: "footer1"%>  </li>
+            </ul>
+          <% else %>
+         <ul class="nav navbar-nav pp">
+      <li><%= link_to 'e-Groceries', shops_path,  class: "footer1" %></li>
+      <li><%= link_to 'Available Polls', polls_path,  class: "footer1" %></li>
+      <%#= link_to 'Add Need Of service link here', calculateelectricbills_index_path, class: "footer1" %> 
+       <li><%= link_to 'Household Assets', assets_path , class: "footer1"%>  </li>
+       <li><%= link_to ' Events', events_path , class: "footer1"%>  </li>
+      <div class="dropdown" >
+      <button class="dropbtn">Bugdet Calulators</button>
+      <div class="dropdown-content">
+        <%= link_to 'Amenities', new_cal_path %>
+        <%= link_to 'Rental Profit/Loss', new_rent_path %>
+      <%= link_to 'Calculate Electricity Bill', calculateelectricbills_index_path %>
+      </div></div>
+      <% end %>
+      <% end %>
+      <ul class = "nav navbar-nav pp ">
+       <% if user_signed_in? %> 
+        <% else %>
+           <% puts "" %>  
+      <li><%= link_to'Login ', new_user_session_path,  class: "footer1" %></li>
+      <li><%= link_to 'Signup', new_user_registration_path ,class: "footer1" %> </li>
+      
+     <% end %>
+    </div>
+  
+      <div  class = "nav navbar-nav pp">
+      <% if user_signed_in? %>
+      <div class ="as">
+      <li> <b>Signed in as... <%= current_user.email %></b></li>
+      </div>
+<% puts "linktosignout" %>
+(<%= link_to 'Sign out', destroy_user_session_path,class: "footer1",
+:method => :delete %> )
+<% end %> 
+</div>
+ </div>
+</div></div>
+    </ul>
+    
+  </div>
+  
+</div>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+
+<div class="container">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>">
+      <%= value %>
+    </div>
+  <% end %>
+
+  <div class="page-header">
+    <h1><%= yield :page_header %></h1>
+  </div>
+
+  <%= yield  %>
+  <br>
+  <br>
+  <br>
+  
+</div>
+  </body>
+</html>
+<style>
+  .pp{
+    color: white;
+    padding: 0px 50px 0px 0px;
+    hover:;
+  }
+  
+   .pq{
+    color: white;
+    padding: 0px 130px 0px 0px;
+    hover:;
+  }
+  .as{  
+    padding: 4px 0px;
+  }
+</style>

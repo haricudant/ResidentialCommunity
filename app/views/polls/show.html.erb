@@ -1,0 +1,16 @@
+<div class = "jumbotron">
+<div class = 'well'>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Topic:</strong>
+  <strong><%=@poll.topic%></strong>
+  </p>
+<%= render 'voting_form' %>
+<% if current_user.admin? %>
+<%= link_to 'Edit', edit_poll_path(@poll) %> |
+<%= link_to 'Back', polls_path %>
+<% end %>
+</div>
+</div>

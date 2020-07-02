@@ -1,0 +1,12 @@
+<div class = "jumbotron">
+<h3>WELCOME TO EB BILL PREDICTOR</h3>
+<%= form_tag "/calculateelectricbills" do |form| %>
+Number of rooms you use:
+ <%= text_field_tag :rooms %> 
+ 
+ <div class="field">
+   
+  </div>
+<%= submit_tag "Check", class: 'btn btn-primary md' %>
+<% end %>
+</div>

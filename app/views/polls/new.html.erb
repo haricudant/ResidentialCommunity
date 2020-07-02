@@ -1,0 +1,10 @@
+
+<% content_for(:page_header) {"Create a new poll"} %> 
+<strong>Welcome</strong>
+<% if current_user %>
+<%= render 'form'%>
+
+<%= link_to 'Back', polls_path %>
+<% else %>
+<H1>PLEASE SIGN IN</H1>
+<% end %>

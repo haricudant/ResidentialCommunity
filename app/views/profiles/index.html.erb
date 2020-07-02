@@ -1,0 +1,43 @@
+<% content_for(:page_header) {"User Profile!"} %>
+
+<p id="notice"><%= notice %></p>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Door no</th>
+      <th>Spouse name</th>
+      <th>Number of cars</th>
+      <th>Intrested in events</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @profiles.each do |profile| %>
+    <% if current_user.id == profile.user_id %>
+      <tr>
+        <td><%= profile.firstname %></td>
+        <td><%= profile.lastname %></td>
+        <td><%= profile.door_no %></td>
+        <td><%= profile.spouse_name %></td>
+        <td><%= profile.Number_of_Cars %></td>
+        <td><%= profile.Intrested_in_events %></td>
+        <td><%= profile.user_id %></td>
+        <td><%= link_to 'Show', profile %></td>
+        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<!-- # link_to 'New Profile', new_profile_path %> -->

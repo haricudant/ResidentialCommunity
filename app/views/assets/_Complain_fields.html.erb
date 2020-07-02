@@ -1,0 +1,33 @@
+<div class='nested-fields'>
+    <div class='form-group'>
+       
+          <%= f.label :description %>
+          <%=  f.text_field :description,  class: 'form-control',required: true %>
+          <br>
+          <br>
+          <%= f.label :SERVICE_PROVIDER_ID %>
+          <%= f.select :serviceprovider_id , @provider %>
+          <br>
+          <br>
+          <%= f.label :attachment %>
+          <%= f.file_field :attachment %>
+          <br>
+          <br>
+          
+          <%= f.label :user_id %>
+         <%= f.number_field :user_id, :value => current_user.id , :readonly => true%>
+          <br>
+          <br>
+          <%= f.label :asset_id %>
+          <%= f.text_field :asset_id , :readonly => true%>
+          <br>
+          <br>
+          
+           <%= f.label :mailid %>
+           <%= f.select :mailid , @results %>
+            <br>
+            <br>
+          <%= f.label :appointment %>
+          <%= f.datetime_select :appointment,  class: 'form-control'   %>
+        </div>
+  </div>

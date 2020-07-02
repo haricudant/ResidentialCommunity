@@ -1,0 +1,51 @@
+<div class = "jumbotron">
+  <% content_for(:page_header) {"Participate in our polls right now!"} %>
+
+<p id="notice"><%= notice %></p>
+
+
+<h1>Polls</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+    <% @polls.each do |poll| %>
+    <div class="well">
+    <h2>      <%= poll.topic %> <small>(vote count: <%= poll.vote_count %>)</small></h2>      <p>
+      <% if current_user %>
+       
+        <%= link_to 'Participate!', poll_path(poll), class: 'btn btn-primary btn-lg block' %>
+        
+      <% else %>
+        Please sign in via <%= link_to 'Facebook', '/auth/facebook' %> to participate in this poll.
+      <% end %>
+    </p>
+<% if current_user.admin? %>
+    <div class="btn-group">
+      <%= link_to 'Edit', edit_poll_path(poll), class: 'btn btn-default' %>
+      <%= link_to 'Delete', poll_path(poll), method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure?'} %>
+    </div>
+    <% end %>
+    </p>
+     
+      <tr>
+        
+      </tr>
+      </div>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if user_signed_in? && current_user.admin != true %>
+<%= link_to 'New Poll', new_poll_path %>
+<% end %>
+<%= link_to 'Back', root_path %>
+

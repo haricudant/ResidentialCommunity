@@ -1,0 +1,11 @@
+<div class = "jumbotron">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Servicename:</strong>
+  <%= @service.servicename %>
+</p>
+
+<%= link_to 'Edit', edit_service_path(@service) %> |
+<%= link_to 'Back', services_path %>
+</div>

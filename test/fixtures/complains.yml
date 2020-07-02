@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  appointment: 2019-03-31 19:23:00
+  providername: MyString
+  mailid: MyString
+  attachment: MyString
+  user: one
+  asset: one
+  serviceprovider: one
+
+two:
+  description: MyString
+  appointment: 2019-03-31 19:23:00
+  providername: MyString
+  mailid: MyString
+  attachment: MyString
+  user: two
+  asset: two
+  serviceprovider: two
